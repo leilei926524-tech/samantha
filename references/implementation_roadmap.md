@@ -1,4 +1,4 @@
-# Hikaru 实现路线图 - 从设计到可用
+# Samantha 实现路线图 - 从设计到可用
 
 ## 当前状态总结
 
@@ -12,7 +12,7 @@
 ### ⚠️ 部分完成（需要测试）
 - [~] `personality.py` - 有框架，但`_call_llm()`是placeholder
 - [~] `memory.py` - 有基础功能，新增了位置记忆
-- [~] `hikaru.py` - 主入口，需要集成OpenClaw
+- [~] `samantha.py` - 主入口，需要集成OpenClaw
 
 ### ❌ 未实现
 - [ ] OpenClaw LLM调用集成
@@ -24,9 +24,9 @@
 
 ## 实现路线图
 
-### Phase 0: 基础Hikaru Skill（优先级：最高）
+### Phase 0: 基础Samantha Skill（优先级：最高）
 
-**目标**: 让基础的Hikaru对话功能可以运行
+**目标**: 让基础的Samantha对话功能可以运行
 
 **时间**: 2-3天
 
@@ -37,7 +37,7 @@
    - [ ] 测试system prompt是否正确加载
 
 2. **完善主入口**
-   - [ ] 确保`hikaru.py`能正确初始化
+   - [ ] 确保`samantha.py`能正确初始化
    - [ ] 集成所有组件（personality, memory, emotional_intelligence）
    - [ ] 测试基础对话流程
 
@@ -47,13 +47,13 @@
    - [ ] 测试记忆存储和检索
 
 4. **部署到OpenClaw**
-   - [ ] 复制到`~/.openclaw/workspace/skills/hikaru`
+   - [ ] 复制到`~/.openclaw/workspace/skills/samantha`
    - [ ] 测试OpenClaw能否识别skill
    - [ ] 进行第一次对话测试
 
 **验收标准**:
-- [ ] 可以通过OpenClaw与Hikaru对话
-- [ ] Hikaru的回应体现personality seeds的原则
+- [ ] 可以通过OpenClaw与Samantha对话
+- [ ] Samantha的回应体现personality seeds的原则
 - [ ] 对话被正确存储到memory
 - [ ] 可以引用之前的对话
 
@@ -107,7 +107,7 @@
 
 **前置条件**:
 - Phase 0和Phase 1完成
-- 基础Hikaru已经稳定运行
+- 基础Samantha已经稳定运行
 
 **任务**:
 1. **创建health monitor plugin框架**
@@ -126,7 +126,7 @@
    - [ ] 触发条件判断
    - [ ] 频率控制
 
-3. **集成到Hikaru**
+3. **集成到Samantha**
    - [ ] 添加`handle_proactive_contact()`回调
    - [ ] 实现主动消息发送
    - [ ] 测试触发流程
@@ -138,7 +138,7 @@
 
 **验收标准**:
 - [ ] 用户可以手动输入健康数据
-- [ ] 当数据异常时Hikaru会主动询问
+- [ ] 当数据异常时Samantha会主动询问
 - [ ] 主动联系的频率和时机合理
 - [ ] 消息风格符合《Her》（温和、不医疗化）
 
@@ -248,7 +248,7 @@
 
 ### 立即行动（今天-明天）
 
-**目标**: 让基础Hikaru可以运行
+**目标**: 让基础Samantha可以运行
 
 1. **研究OpenClaw的LLM调用方式**
    ```bash
@@ -264,14 +264,14 @@
 
 3. **初始化数据库**
    ```bash
-   cd hikaru
+   cd samantha
    python scripts/setup.py
    ```
 
 4. **第一次测试**
    ```bash
    # 复制到OpenClaw
-   cp -r hikaru ~/.openclaw/workspace/skills/
+   cp -r samantha ~/.openclaw/workspace/skills/
 
    # 通过OpenClaw测试
    # （具体命令取决于OpenClaw的使用方式）
@@ -279,7 +279,7 @@
 
 ### 本周目标
 
-- [ ] 完成Phase 0（基础Hikaru可用）
+- [ ] 完成Phase 0（基础Samantha可用）
 - [ ] 进行至少10次对话测试
 - [ ] 验证personality seeds是否生效
 - [ ] 修复发现的bug
@@ -303,7 +303,7 @@
 ### 中期（1个月）
 **可能有**手动健康监测
 - 通过对话输入健康数据
-- Hikaru会基于这些数据主动关心
+- Samantha会基于这些数据主动关心
 - 这已经很接近《Her》的体验了
 
 ### 长期（2-3个月）
@@ -381,7 +381,7 @@
 
 **当前状态**: 有完整的设计，但还没有可运行的代码
 
-**要让Hikaru可用**: 需要先完成Phase 0（2-3天工作）
+**要让Samantha可用**: 需要先完成Phase 0（2-3天工作）
 
 **要有智能手表集成**: 需要完成所有Phases（6-8周工作）
 
@@ -392,6 +392,6 @@
 4. 智能手表集成是锦上添花，不是必需
 
 **下一步**: 告诉我你想先做什么？
-- A. 让基础Hikaru可以对话
+- A. 让基础Samantha可以对话
 - B. 直接实现健康监测（手动输入版）
 - C. 其他想法

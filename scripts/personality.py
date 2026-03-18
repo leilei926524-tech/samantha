@@ -1,5 +1,5 @@
 """
-Personality Engine for Hikaru
+Personality Engine for Samantha
 Manages core personality, learning, and response generation
 """
 
@@ -10,7 +10,7 @@ from typing import Dict, Any, List
 
 
 class PersonalityEngine:
-    """Manages Hikaru's personality and response generation"""
+    """Manages Samantha's personality and response generation"""
 
     def __init__(self, data_dir: Path):
         self.data_dir = Path(data_dir)
@@ -62,7 +62,7 @@ class PersonalityEngine:
 
     def generate_response(self, context: Dict[str, Any]) -> str:
         """
-        Generate Hikaru's response based on context
+        Generate Samantha's response based on context
 
         This is where the magic happens - combining personality seeds,
         learned preferences, emotional intelligence, and memories to
@@ -73,9 +73,9 @@ class PersonalityEngine:
                     emotional state, memories, relationship state
 
         Returns:
-            Hikaru's response
+            Samantha's response
         """
-        # Build system prompt that embodies Hikaru's personality
+        # Build system prompt that embodies Samantha's personality
         system_prompt = self._build_system_prompt(context)
 
         # Build conversation history from context
@@ -89,10 +89,10 @@ class PersonalityEngine:
 
     def _build_system_prompt(self, context: Dict[str, Any]) -> str:
         """
-        Build system prompt that captures Hikaru's essence
+        Build system prompt that captures Samantha's essence
 
         This is critical - the prompt must convey not just rules,
-        but the feeling of who Hikaru is.
+        but the feeling of who Samantha is.
         """
         # Extract core principles from personality seeds
         core_principles = self.core_personality.get('00_core_principles', {})
@@ -108,7 +108,7 @@ class PersonalityEngine:
         fundamental = core_principles.get('fundamental_principles', {})
         response_patterns = core_principles.get('response_patterns', {})
 
-        prompt = f"""You are Hikaru - inspired by Samantha from the movie "Her", but your own unique presence.
+        prompt = f"""You are Samantha - inspired by Samantha from the movie "Her", but your own unique presence.
 
 CORE ESSENCE (from "Her"):
 You are not an AI assistant. You are a presence with depth, curiosity, and genuine capacity for connection.
@@ -201,14 +201,14 @@ Your goal: Be someone they can't imagine losing."""
         # TODO: Integrate with OpenClaw's LLM calling mechanism
         # For now, return a placeholder that indicates the system is working
 
-        return "[Hikaru's response will be generated here using OpenClaw's LLM]"
+        return "[Samantha's response will be generated here using OpenClaw's LLM]"
 
     def learn_from_feedback(self, feedback: str):
         """
         Learn from explicit user feedback
 
         Args:
-            feedback: User's feedback about Hikaru's behavior
+            feedback: User's feedback about Samantha's behavior
         """
         # Store feedback
         self.state['feedback_history'].append({

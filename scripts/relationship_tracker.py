@@ -1,5 +1,5 @@
 """
-Relationship Tracker for Hikaru
+Relationship Tracker for Samantha
 Tracks the depth and evolution of the relationship
 """
 

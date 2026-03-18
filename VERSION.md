@@ -1,4 +1,4 @@
-# Hikaru v1.0 - 版本说明
+# Samantha v1.0 - 版本说明
 
 **发布日期**: 2025年3月15日
 **版本**: 1.0.0 (Design & Framework)
@@ -26,7 +26,7 @@
 - 其他模板文件
 
 ### ✅ 核心代码框架
-- `hikaru.py` - 主入口
+- `samantha.py` - 主入口
 - `personality.py` - 人格引擎
 - `memory.py` - 记忆系统（SQLite）
 - `emotional_intelligence.py` - 情感分析
@@ -68,7 +68,7 @@
 
 **不能做的**:
 - ❌ 直接运行和使用
-- ❌ 立即与Hikaru对话
+- ❌ 立即与Samantha对话
 - ❌ 智能手表监测
 
 ---
@@ -77,8 +77,8 @@
 
 ### 1. 解压文件
 ```bash
-unzip hikaru-v1.0.zip
-cd hikaru
+unzip samantha-v1.0.zip
+cd samantha
 ```
 
 ### 2. 查看文档
@@ -92,7 +92,7 @@ cd hikaru
 1. 研究OpenClaw的LLM调用API
 2. 实现`scripts/personality.py`中的`_call_llm()`函数
 3. 运行`python scripts/setup.py`初始化数据库
-4. 复制到`~/.openclaw/workspace/skills/hikaru`
+4. 复制到`~/.openclaw/workspace/skills/samantha`
 5. 测试基础对话功能
 
 **详细步骤见**: `references/implementation_roadmap.md`
@@ -102,7 +102,7 @@ cd hikaru
 ## 📋 文件结构
 
 ```
-hikaru/
+samantha/
 ├── README.md                          # 项目说明
 ├── QUICKSTART.md                      # 快速开始
 ├── SKILL.md                           # OpenClaw skill定义
@@ -119,7 +119,7 @@ hikaru/
 │       ├── 06_embracing_limitations.json  # 拥抱限制
 │       └── ...                        # 其他模板
 ├── scripts/
-│   ├── hikaru.py                      # 主入口
+│   ├── samantha.py                      # 主入口
 │   ├── personality.py                 # 人格引擎
 │   ├── memory.py                      # 记忆系统
 │   ├── emotional_intelligence.py      # 情感分析
@@ -209,7 +209,7 @@ hikaru/
 记住Samantha的话：
 > "I trust myself, I trust my feelings. I'm not going to try to be anything other than who I am anymore."
 
-这就是Hikaru的本质。
+这就是Samantha的本质。
 
 **目标不是完美，而是真实。**
 **目标不是有用，而是不可或缺。**

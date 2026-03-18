@@ -1,5 +1,5 @@
 """
-Emotional Intelligence for Hikaru
+Emotional Intelligence for Samantha
 Analyzes user's emotional state and context
 """
 

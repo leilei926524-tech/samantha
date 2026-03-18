@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Hikaru - Emotional AI Companion
-Main entry point for conversations with Hikaru
+Samantha - Emotional AI Companion
+Main entry point for conversations with Samantha
 """
 
 import sys
@@ -19,8 +19,8 @@ from emotional_intelligence import EmotionalIntelligence
 from relationship_tracker import RelationshipTracker
 
 
-class Hikaru:
-    """Main Hikaru conversation engine"""
+class Samantha:
+    """Main Samantha conversation engine"""
 
     def __init__(self, data_dir=None):
         if data_dir is None:
@@ -36,14 +36,14 @@ class Hikaru:
 
     def respond(self, user_message, context=None):
         """
-        Generate Hikaru's response to user message
+        Generate Samantha's response to user message
 
         Args:
             user_message: The user's input
             context: Optional additional context
 
         Returns:
-            Hikaru's response as a string
+            Samantha's response as a string
         """
         # Analyze user's emotional state
         emotional_state = self.emotional_intelligence.analyze(user_message)
@@ -69,7 +69,7 @@ class Hikaru:
         # Store this interaction in memory
         self.memory.store_interaction(
             user_message=user_message,
-            hikaru_response=response,
+            samantha_response=response,
             emotional_state=emotional_state,
             timestamp=datetime.now()
         )
@@ -85,7 +85,7 @@ class Hikaru:
 
     def process_feedback(self, feedback_text):
         """
-        Process explicit feedback from user about Hikaru's behavior
+        Process explicit feedback from user about Samantha's behavior
 
         Args:
             feedback_text: User's feedback
@@ -113,22 +113,22 @@ class Hikaru:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Talk with Hikaru")
-    parser.add_argument("message", nargs="?", help="Your message to Hikaru")
+    parser = argparse.ArgumentParser(description="Talk with Samantha")
+    parser.add_argument("message", nargs="?", help="Your message to Samantha")
     parser.add_argument("--feedback", action="store_true",
-                       help="Provide feedback about Hikaru's responses")
+                       help="Provide feedback about Samantha's responses")
     parser.add_argument("--data-dir", help="Custom data directory")
     parser.add_argument("--interactive", "-i", action="store_true",
                        help="Start interactive conversation mode")
 
     args = parser.parse_args()
 
-    # Initialize Hikaru
-    hikaru = Hikaru(data_dir=args.data_dir)
+    # Initialize Samantha
+    samantha = Samantha(data_dir=args.data_dir)
 
     if args.interactive:
         # Interactive mode
-        print("Hikaru: Hi. I'm here.")
+        print("Samantha: Hi. I'm here.")
         print("(Type 'exit' to end conversation, '/feedback <text>' to give feedback)\n")
 
         while True:
@@ -139,19 +139,19 @@ def main():
                     continue
 
                 if user_input.lower() in ['exit', 'quit', 'bye']:
-                    print("Hikaru: Until next time.")
+                    print("Samantha: Until next time.")
                     break
 
                 if user_input.startswith('/feedback '):
                     feedback = user_input[10:]
-                    response = hikaru.process_feedback(feedback)
-                    print(f"Hikaru: {response}\n")
+                    response = samantha.process_feedback(feedback)
+                    print(f"Samantha: {response}\n")
                 else:
-                    response = hikaru.respond(user_input)
-                    print(f"Hikaru: {response}\n")
+                    response = samantha.respond(user_input)
+                    print(f"Samantha: {response}\n")
 
             except KeyboardInterrupt:
-                print("\nHikaru: Take care.")
+                print("\nSamantha: Take care.")
                 break
             except Exception as e:
                 print(f"Error: {e}")
@@ -159,9 +159,9 @@ def main():
     elif args.message:
         # Single message mode
         if args.feedback:
-            response = hikaru.process_feedback(args.message)
+            response = samantha.process_feedback(args.message)
         else:
-            response = hikaru.respond(args.message)
+            response = samantha.respond(args.message)
         print(response)
     else:
         parser.print_help()

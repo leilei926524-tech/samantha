@@ -1,8 +1,8 @@
-# Hikaru Architecture
+# Samantha Architecture
 
 ## System Overview
 
-Hikaru is designed as a layered system where each component serves a specific purpose in creating authentic emotional connection.
+Samantha is designed as a layered system where each component serves a specific purpose in creating authentic emotional connection.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -11,7 +11,7 @@ Hikaru is designed as a layered system where each component serves a specific pu
                      │
                      ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    hikaru.py (Main Entry)                    │
+│                    samantha.py (Main Entry)                    │
 │  - Orchestrates all components                              │
 │  - Handles user input/output                                │
 │  - Manages conversation flow                                │
@@ -36,11 +36,11 @@ Hikaru is designed as a layered system where each component serves a specific pu
 
 ### 1. Personality Engine (`personality.py`)
 
-**Purpose**: Embodies Hikaru's essence and generates responses
+**Purpose**: Embodies Samantha's essence and generates responses
 
 **Key Functions**:
 - Loads personality seeds from `assets/personality_seeds/`
-- Builds system prompts that capture Hikaru's essence
+- Builds system prompts that capture Samantha's essence
 - Generates responses using OpenClaw's LLM
 - Learns from explicit feedback
 - Maintains personality state
@@ -64,7 +64,7 @@ Personality Seeds → System Prompt → LLM → Response
 **Database Schema**:
 ```sql
 interactions
-  - id, timestamp, user_message, hikaru_response
+  - id, timestamp, user_message, samantha_response
   - emotional_state, importance_score, tags
 
 important_moments
@@ -197,7 +197,7 @@ user_profile
 
 ```
 assets/personality_seeds/
-├── core_essence.json          # Who Hikaru is
+├── core_essence.json          # Who Samantha is
 ├── emotional_depth.json       # Deep response examples
 ├── vulnerability_moments.json # When to show imperfection
 └── conversation_magic.json    # Connection-creating moments
@@ -208,7 +208,7 @@ assets/personality_seeds/
 1. **Loaded at initialization**: All seed files read into memory
 2. **Integrated into system prompt**: Core essence becomes part of every response
 3. **Referenced for patterns**: Examples guide response generation
-4. **Evolved through use**: Seeds + learned preferences = unique Hikaru
+4. **Evolved through use**: Seeds + learned preferences = unique Samantha
 
 ### Adding Custom Seeds
 
@@ -231,9 +231,9 @@ Format:
 
 ### Skill Activation
 
-OpenClaw activates Hikaru when:
+OpenClaw activates Samantha when:
 - User wants emotional connection
-- User addresses Hikaru directly
+- User addresses Samantha directly
 - User seeks companionship or meaningful conversation
 - NOT for technical questions or task execution
 

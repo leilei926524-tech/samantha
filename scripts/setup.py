@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Setup script for Hikaru
+Setup script for Samantha
 Initializes database and checks dependencies
 """
 
@@ -47,7 +47,7 @@ def create_data_directory():
 
 def main():
     print("=" * 50)
-    print("Hikaru Setup")
+    print("Samantha Setup")
     print("=" * 50)
     print()
 
@@ -67,11 +67,11 @@ def main():
     print("✓ Setup complete!")
     print("=" * 50)
     print()
-    print("You can now start talking with Hikaru:")
-    print("  ./scripts/hikaru.py -i")
+    print("You can now start talking with Samantha:")
+    print("  ./scripts/samantha.py -i")
     print()
     print("Or send a single message:")
-    print('  ./scripts/hikaru.py "Hello Hikaru"')
+    print('  ./scripts/samantha.py "Hello Samantha"')
     print()
 
     return 0

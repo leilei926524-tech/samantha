@@ -1,5 +1,5 @@
 """
-Memory System for Hikaru
+Memory System for Samantha
 Manages conversation history, important moments, and relationship memories
 """
 
@@ -11,7 +11,7 @@ from typing import List, Dict, Any, Optional
 
 
 class MemorySystem:
-    """Manages Hikaru's memory and conversation history"""
+    """Manages Samantha's memory and conversation history"""
 
     def __init__(self, data_dir: Path):
         self.data_dir = Path(data_dir)
@@ -31,7 +31,7 @@ class MemorySystem:
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 timestamp TEXT NOT NULL,
                 user_message TEXT NOT NULL,
-                hikaru_response TEXT NOT NULL,
+                samantha_response TEXT NOT NULL,
                 emotional_state TEXT,
                 importance_score REAL DEFAULT 0.5,
                 tags TEXT
@@ -72,7 +72,7 @@ class MemorySystem:
             )
         ''')
 
-        # User profile - things Hikaru learns about you
+        # User profile - things Samantha learns about you
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS user_profile (
                 key TEXT PRIMARY KEY,
@@ -85,7 +85,7 @@ class MemorySystem:
         conn.commit()
         conn.close()
 
-    def store_interaction(self, user_message: str, hikaru_response: str,
+    def store_interaction(self, user_message: str, samantha_response: str,
                          emotional_state: Dict[str, Any], timestamp: datetime):
         """Store a conversation interaction"""
         conn = sqlite3.connect(self.db_path)
@@ -93,12 +93,12 @@ class MemorySystem:
 
         cursor.execute('''
             INSERT INTO interactions
-            (timestamp, user_message, hikaru_response, emotional_state)
+            (timestamp, user_message, samantha_response, emotional_state)
             VALUES (?, ?, ?, ?)
         ''', (
             timestamp.isoformat(),
             user_message,
-            hikaru_response,
+            samantha_response,
             json.dumps(emotional_state)
         ))
 
@@ -128,7 +128,7 @@ class MemorySystem:
 
         # For now, just get recent important interactions
         cursor.execute('''
-            SELECT id, timestamp, user_message, hikaru_response,
+            SELECT id, timestamp, user_message, samantha_response,
                    emotional_state, importance_score
             FROM interactions
             WHERE importance_score > 0.6
@@ -142,7 +142,7 @@ class MemorySystem:
                 "id": row[0],
                 "timestamp": row[1],
                 "user_message": row[2],
-                "hikaru_response": row[3],
+                "samantha_response": row[3],
                 "emotional_state": json.loads(row[4]) if row[4] else {},
                 "importance": row[5],
                 "summary": f"{row[2][:50]}..." if len(row[2]) > 50 else row[2]
@@ -295,7 +295,7 @@ class MemorySystem:
         cursor = conn.cursor()
 
         cursor.execute('''
-            SELECT timestamp, user_message, hikaru_response
+            SELECT timestamp, user_message, samantha_response
             FROM interactions
             ORDER BY timestamp DESC
             LIMIT ?
@@ -306,7 +306,7 @@ class MemorySystem:
             history.append({
                 "timestamp": row[0],
                 "user": row[1],
-                "hikaru": row[2]
+                "samantha": row[2]
             })
 
         conn.close()

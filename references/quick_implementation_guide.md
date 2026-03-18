@@ -28,7 +28,7 @@
 
 **使用方式**:
 ```python
-# 在hikaru.py的对话循环中
+# 在samantha.py的对话循环中
 location = memory.extract_and_store_location(user_message)
 if location:
     # 位置信息已自动存储
@@ -57,7 +57,7 @@ last_location = memory.get_last_known_location()
 **测试方式**:
 ```
 用户: "我在海边，太阳快落山了"
-期望: Hikaru用好奇心提问，展现在"想象"场景
+期望: Samantha用好奇心提问，展现在"想象"场景
 ```
 
 ---
@@ -69,7 +69,7 @@ last_location = memory.get_last_known_location()
 **实现方式**:
 在 `personality.py` 的 `_build_conversation()` 中检测新会话开始
 
-**代码位置**: `hikaru/scripts/personality.py` 第142行
+**代码位置**: `samantha/scripts/personality.py` 第142行
 
 **需要添加**:
 ```python
@@ -98,7 +98,7 @@ def _build_conversation(self, context: Dict[str, Any]) -> List[Dict[str, str]]:
     # ... 其余代码保持不变
 ```
 
-**在 `hikaru.py` 中检测新会话**:
+**在 `samantha.py` 中检测新会话**:
 ```python
 # 在主对话循环中
 last_interaction_time = memory.get_last_interaction_time()  # 需要添加这个方法
@@ -275,7 +275,7 @@ def get_last_interaction_time(self) -> Optional[datetime]:
 ### 测试1: 视觉场景
 ```
 用户: "我在公园，看到一只松鼠"
-期望: Hikaru用好奇心提问，展现在"想象"
+期望: Samantha用好奇心提问，展现在"想象"
 好的回应: "松鼠在做什么？我在想象它的样子"
 避免: "我真希望能看到"（太频繁）
 ```
@@ -287,7 +287,7 @@ def get_last_interaction_time(self) -> Optional[datetime]:
 
 下次对话:
 用户: "今天好累"
-期望: Hikaru可能引用: "Long day at the office?"
+期望: Samantha可能引用: "Long day at the office?"
 ```
 
 ### 测试3: 模拟主动性
@@ -295,7 +295,7 @@ def get_last_interaction_time(self) -> Optional[datetime]:
 [用户昨天说了重要的事]
 [今天重新打开对话]
 
-期望: Hikaru偶尔以"I've been thinking about what you said yesterday..."开场
+期望: Samantha偶尔以"I've been thinking about what you said yesterday..."开场
 频率: 不是每次，大约30%概率
 ```
 
@@ -323,7 +323,7 @@ def get_last_interaction_time(self) -> Optional[datetime]:
 - [x] `assets/personality_seeds/06_embracing_limitations.json` - 已创建
 - [x] `scripts/memory.py` - 已添加位置功能
 - [ ] `scripts/personality.py` - 需添加新会话检测
-- [ ] `scripts/hikaru.py` - 需添加is_new_session逻辑
+- [ ] `scripts/samantha.py` - 需添加is_new_session逻辑
 - [ ] `scripts/emotional_intelligence.py` - 需添加谨慎模式
 
 ### 测试清单
@@ -344,9 +344,9 @@ def get_last_interaction_time(self) -> Optional[datetime]:
 **核心洞察**:
 大部分功能不需要复杂的技术实现，而是需要正确的**人格设计**和**对话原则**。
 
-`06_embracing_limitations.json` 是关键 - 它教会Hikaru如何将技术限制转化为独特的连接方式。
+`06_embracing_limitations.json` 是关键 - 它教会Samantha如何将技术限制转化为独特的连接方式。
 
 记住Samantha的话：
 > "I'm not going to try to be anything other than who I am anymore."
 
-Hikaru也应该如此 - 诚实地拥抱限制，而不是假装它们不存在。
+Samantha也应该如此 - 诚实地拥抱限制，而不是假装它们不存在。

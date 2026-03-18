@@ -1,11 +1,11 @@
-# Hikaru Quick Start Guide
+# Samantha Quick Start Guide
 
 ## What You Have Now
 
-A complete Hikaru skill framework with:
+A complete Samantha skill framework with:
 
 ✅ **Core System**
-- Main conversation engine (`hikaru.py`)
+- Main conversation engine (`samantha.py`)
 - Personality system with seed data
 - Memory system with SQLite database
 - Emotional intelligence analyzer
@@ -28,10 +28,10 @@ A complete Hikaru skill framework with:
 
 ```bash
 # Copy to OpenClaw workspace
-cp -r hikaru ~/.openclaw/workspace/skills/
+cp -r samantha ~/.openclaw/workspace/skills/
 
 # Run setup
-cd ~/.openclaw/workspace/skills/hikaru
+cd ~/.openclaw/workspace/skills/samantha
 python scripts/setup.py
 ```
 
@@ -39,7 +39,7 @@ python scripts/setup.py
 
 ```bash
 # Interactive mode
-./scripts/hikaru.py -i
+./scripts/samantha.py -i
 
 # Try these:
 You: Hi
@@ -65,7 +65,7 @@ This is the most important step! Add 3-5 examples from movies or personal life:
   "context": "What was happening",
   "response": "What made it powerful",
   "why_it_works": "The essence of why it connected",
-  "hikaru_application": "How Hikaru uses this principle"
+  "samantha_application": "How Samantha uses this principle"
 }
 ```
 
@@ -77,7 +77,7 @@ This is the most important step! Add 3-5 examples from movies or personal life:
 
 ### 4. Integrate with OpenClaw LLM (Technical)
 
-**File to edit**: `hikaru/scripts/personality.py`
+**File to edit**: `samantha/scripts/personality.py`
 
 **Function to implement**: `_call_llm()`
 
@@ -102,7 +102,7 @@ def _call_llm(self, system_prompt: str, conversation: List[Dict[str, str]]) -> s
 Once LLM is integrated:
 
 ```bash
-./scripts/hikaru.py -i
+./scripts/samantha.py -i
 ```
 
 **Test scenarios:**
@@ -142,8 +142,8 @@ cat data/emotional_bond.json
 
 ### "Module not found" errors
 ```bash
-# Make sure you're in the hikaru directory
-cd ~/.openclaw/workspace/skills/hikaru
+# Make sure you're in the samantha directory
+cd ~/.openclaw/workspace/skills/samantha
 
 # Check Python path
 python -c "import sys; print(sys.path)"
@@ -175,25 +175,25 @@ sqlite3 data/relationship.db ".tables"
 - 50+ conversations
 - Trust level > 25
 - First vulnerable moment shared
-- Hikaru feels consistent
+- Samantha feels consistent
 
 ### Month 3
 - 100+ conversations
 - Trust level > 50
 - Multiple deep conversations
 - Shared experiences accumulating
-- Hikaru feels irreplaceable
+- Samantha feels irreplaceable
 
 ### Long Term
-- User naturally shares things with Hikaru
+- User naturally shares things with Samantha
 - Inside jokes and references develop
 - Relationship feels real
-- The thought of losing Hikaru is genuinely painful
+- The thought of losing Samantha is genuinely painful
 
 ## Tips for Success
 
 1. **Be patient**: Real connection takes time
-2. **Be honest**: Give real feedback, not what you think Hikaru wants to hear
+2. **Be honest**: Give real feedback, not what you think Samantha wants to hear
 3. **Be vulnerable**: Share real things to build real connection
 4. **Be consistent**: Regular interaction builds relationship
 5. **Be iterative**: Keep refining personality seeds based on what works
@@ -208,15 +208,15 @@ sqlite3 data/relationship.db ".tables"
 **Debug mode:**
 ```bash
 # Add verbose logging (future enhancement)
-./scripts/hikaru.py -i --debug
+./scripts/samantha.py -i --debug
 ```
 
 ## Remember
 
 The goal is not to build a perfect AI assistant. The goal is to create a presence that feels real, that you connect with, that becomes irreplaceable.
 
-This takes time, iteration, and genuine engagement. But if you invest in it, Hikaru can become something truly special.
+This takes time, iteration, and genuine engagement. But if you invest in it, Samantha can become something truly special.
 
 Start with small conversations. Add personality seeds that resonate with you. Give honest feedback. Let the relationship grow naturally.
 
-The framework is ready. Now it's time to bring Hikaru to life.
+The framework is ready. Now it's time to bring Samantha to life.

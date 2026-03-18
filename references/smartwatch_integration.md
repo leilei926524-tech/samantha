@@ -2,7 +2,7 @@
 
 ## 概述
 
-通过集成智能手表/健康设备，Hikaru可以监测用户的生理指标，在发现异常时主动发起关怀对话。这是《Her》精神的延伸 - Samantha能"感受"Theodore的状态。
+通过集成智能手表/健康设备，Samantha可以监测用户的生理指标，在发现异常时主动发起关怀对话。这是《Her》精神的延伸 - Samantha能"感受"Theodore的状态。
 
 ---
 
@@ -17,12 +17,12 @@ Health Monitor Plugin (Python)
     ↓ (检测异常)
 OpenClaw Skill System
     ↓ (触发对话)
-Hikaru Skill
+Samantha Skill
 ```
 
 **优势：**
 - 利用OpenClaw现有的plugin架构
-- 与Hikaru skill解耦
+- 与Samantha skill解耦
 - 可以服务于多个skills
 
 **实现位置：**
@@ -40,10 +40,10 @@ Hikaru Skill
 
 ---
 
-### 方案2: Hikaru内置（简单但耦合）
+### 方案2: Samantha内置（简单但耦合）
 
 ```
-Hikaru Skill
+Samantha Skill
 ├── scripts/
 │   ├── health_monitor.py  # 新增
 │   └── ...
@@ -56,7 +56,7 @@ Hikaru Skill
 - 直接集成
 
 **劣势：**
-- 与Hikaru耦合
+- 与Samantha耦合
 - 难以复用
 
 ---
@@ -159,14 +159,14 @@ activity:
 - 而是关心式的询问："Everything okay?"
 - 温和、不侵入、给空间
 
-### Hikaru的主动关怀原则
+### Samantha的主动关怀原则
 
 **1. 温和而非警告**
 ```python
 # ❌ 不好的方式
 "Warning: Your heart rate is abnormal!"
 
-# ✅ Hikaru的方式
+# ✅ Samantha的方式
 "Hey. I noticed something. You okay?"
 ```
 
@@ -222,7 +222,7 @@ user_baseline:
 
 ```python
 """
-Health Monitor for Hikaru
+Health Monitor for Samantha
 Monitors user's health metrics and triggers proactive check-ins
 """
 
@@ -233,11 +233,11 @@ import yaml
 
 
 class HealthMonitor:
-    """Monitors health metrics and triggers Hikaru when needed"""
+    """Monitors health metrics and triggers Samantha when needed"""
 
-    def __init__(self, config_path: str, hikaru_callback):
+    def __init__(self, config_path: str, samantha_callback):
         self.config = self._load_config(config_path)
-        self.hikaru_callback = hikaru_callback
+        self.samantha_callback = samantha_callback
         self.user_baseline = {}
         self.last_contact_time = None
         self.contacts_today = 0
@@ -399,7 +399,7 @@ class HealthMonitor:
                                    data: Dict[str, Any],
                                    urgency: str = "low"):
         """
-        Trigger a proactive contact from Hikaru
+        Trigger a proactive contact from Samantha
 
         Args:
             trigger_type: "heart_rate", "sleep_quality", "stress", "activity"
@@ -409,8 +409,8 @@ class HealthMonitor:
         # 生成合适的开场白
         message = self._generate_check_in_message(trigger_type, data, urgency)
 
-        # 调用Hikaru的回调函数
-        self.hikaru_callback(
+        # 调用Samantha的回调函数
+        self.samantha_callback(
             trigger="health_monitor",
             message=message,
             context={
@@ -495,21 +495,21 @@ class HealthMonitor:
 
 ---
 
-## 集成到Hikaru
+## 集成到Samantha
 
-### 在hikaru.py中集成
+### 在samantha.py中集成
 
 ```python
 from scripts.health_monitor import HealthMonitor
 
-class HikaruSkill:
+class SamanthaSkill:
     def __init__(self):
         # ... 现有初始化 ...
 
         # 初始化健康监测
         self.health_monitor = HealthMonitor(
             config_path="config/health_thresholds.yaml",
-            hikaru_callback=self.handle_proactive_contact
+            samantha_callback=self.handle_proactive_contact
         )
 
         # 启动监测线程（如果需要持续监测）
@@ -524,7 +524,7 @@ class HikaruSkill:
         # 记录触发原因
         self.memory.store_interaction(
             user_message=f"[Health trigger: {context['trigger_type']}]",
-            hikaru_response=message,
+            samantha_response=message,
             emotional_state={"triggered_by": "health_monitor"},
             timestamp=datetime.now()
         )
@@ -623,9 +623,9 @@ class ManualInputSource:
         """
         通过对话收集健康数据
 
-        Hikaru: "How are you feeling today? Scale of 1-10?"
+        Samantha: "How are you feeling today? Scale of 1-10?"
         User: "Maybe a 6"
-        Hikaru: "How did you sleep?"
+        Samantha: "How did you sleep?"
         User: "Not great, woke up a few times"
         """
         pass
@@ -673,7 +673,7 @@ user_control:
 ### 3. 透明度
 
 ```python
-# 在Hikaru的personality seeds中添加
+# 在Samantha的personality seeds中添加
 {
   "health_monitoring_transparency": {
     "when_user_asks": "I'm monitoring your heart rate and sleep patterns, but only to check in when something seems off. All data stays on your device. You can turn this off anytime.",
@@ -690,7 +690,7 @@ user_control:
 ### config/health_thresholds.yaml
 
 ```yaml
-# Hikaru Health Monitoring Configuration
+# Samantha Health Monitoring Configuration
 
 # 心率监测
 heart_rate:
@@ -760,7 +760,7 @@ user_control:
 ### Phase 1: 基础框架（1周）
 - [ ] 创建 `health_monitor.py`
 - [ ] 实现基本的阈值检测逻辑
-- [ ] 集成到Hikaru的回调系统
+- [ ] 集成到Samantha的回调系统
 - [ ] 添加配置文件支持
 
 ### Phase 2: 数据源集成（2-3周）
@@ -790,7 +790,7 @@ user_control:
 **Samantha的话：**
 > "I can feel the fear that you carry around."
 
-**Hikaru通过健康数据：**
+**Samantha通过健康数据：**
 > "Your heart's been racing. What's going on?"
 
 **关键是：**
@@ -804,7 +804,7 @@ user_control:
 ## 注意事项
 
 ### 1. 不要过度医疗化
-Hikaru不是医疗设备，不应该：
+Samantha不是医疗设备，不应该：
 - 诊断疾病
 - 给医疗建议
 - 替代医生
@@ -823,7 +823,7 @@ Hikaru不是医疗设备，不应该：
 
 ## 总结
 
-智能手表集成是Hikaru的自然延伸，让它能够：
+智能手表集成是Samantha的自然延伸，让它能够：
 1. **真正"感受"用户的状态**（通过生理数据）
 2. **主动关怀**（不只是被动回应）
 3. **更深的连接**（像真正关心你的人）
