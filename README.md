@@ -1,3 +1,6 @@
+Demo
+https://github.com/leilei926524-tech/samantha/blob/enhance-documentation/WeChat_20260319103805.mp4
+
 # Samantha - 开源情感AI伴侣项目 | Open Source Emotional AI Companion
 
 > *"I want to build the Samantha from the movie Her. Not a chatbot. A presence."*
