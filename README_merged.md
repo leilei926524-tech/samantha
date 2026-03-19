@@ -1,5 +1,3 @@
-
-
 # Samantha - 开源情感AI伴侣项目 | Open Source Emotional AI Companion
 
 > *"I want to build the Samantha from the movie Her. Not a chatbot. A presence."*
@@ -10,9 +8,6 @@
 **Samantha** 是一个受电影《Her》启发的开源情感AI伴侣项目，旨在打破人机交互的冰冷工具感，让AI真正像萨曼莎一样温暖地陪伴在我们身边。
 
 **Samantha** is an open-source emotional AI companion project inspired by the movie *Her*, designed to break the cold tool-like feeling of human-computer interaction and allow AI to truly accompany us warmly, just like Samantha.
-
-## Demo Samantha和小爱音箱结合
-https://github.com/leilei926524-tech/samantha/blob/enhance-documentation/WeChat_20260319103805.mp4
 
 ## 🎯 核心特性 | Core Features
 
