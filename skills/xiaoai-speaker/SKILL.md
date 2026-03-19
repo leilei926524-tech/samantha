@@ -62,20 +62,32 @@ This lists all your Xiaomi devices with their IDs. Copy the one for your 小爱�
 
 ## Scripts
 
-### `scripts/speak.py` — Main TTS script
+### `scripts/tts_bridge.py` — Xiaomi TTS connection layer
 
 ```bash
-# Speak a message
-python3 skills/xiaoai-speaker/scripts/speak.py "你到家了呀，今天累吗？"
+# Discover devices
+python3 skills/xiaoai-speaker/scripts/tts_bridge.py --discover --config .env
 
-# Speak with specific device
-python3 skills/xiaoai-speaker/scripts/speak.py "早安" --device "小爱音箱Pro"
+# Test connection
+python3 skills/xiaoai-speaker/scripts/tts_bridge.py --test
+
+# Speak directly
+python3 skills/xiaoai-speaker/scripts/tts_bridge.py --speak "你到家了呀"
 ```
 
-### `scripts/discover_devices.py` — Find devices
+### `scripts/voice_assistant.py` — Smart text filtering + async TTS
+
+Automatically skips code blocks, URLs, and text that's too short/long.
 
 ```bash
-python3 skills/xiaoai-speaker/scripts/discover_devices.py
+python3 skills/xiaoai-speaker/scripts/voice_assistant.py --speak "今天累吗？"
+python3 skills/xiaoai-speaker/scripts/voice_assistant.py --test
+```
+
+### `scripts/speak.py` — Simple one-shot TTS
+
+```bash
+python3 skills/xiaoai-speaker/scripts/speak.py "早安"
 ```
 
 ---
