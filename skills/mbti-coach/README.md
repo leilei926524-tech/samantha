@@ -45,7 +45,7 @@ Tracks 8 cognitive functions with real scores:
 - Adapts based on your progress and feedback
 
 ### 🎭 Multi-Perspective Coaching
-Ask Hikaru to respond as any MBTI type:
+Ask Samantha to respond as any MBTI type:
 - "Give me feedback as an ENTJ"
 - "How would an INFJ handle this situation?"
 - "Challenge my thinking like an ENTP"
