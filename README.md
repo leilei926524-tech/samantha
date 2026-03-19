@@ -3,24 +3,67 @@
 > *"I want to build the Samantha from the movie Her. Not a chatbot. A presence."*
 > *"我想构建电影《Her》中的萨曼莎。不是一个聊天机器人。而是一个存在。"*
 
+## 🇬🇧 English Summary (For International Readers)
+
+**Samantha** is an open-source emotional AI companion project that aims to create a warm, human-like AI presence inspired by the movie *Her*. Unlike traditional chatbots, Samantha is designed to be a genuine companion that evolves with you, remembers your shared experiences, and provides emotional support.
+
+### 🎯 Key Differentiators
+
+1. **Emotional Intelligence**: Not just logical responses, but genuine emotional understanding and support
+2. **Personality Evolution**: Learns and grows based on interactions, becoming uniquely yours over time
+3. **Physical Presence**: Integrates with smart devices to create a sense of physical companionship
+4. **Proactive Care**: Doesn't just wait for commands—actively checks in and shows concern
+5. **Memory Continuity**: Remembers every interaction, building a continuous emotional narrative
+
+### 🚀 Quick Start for Developers
+
+```bash
+# Clone the repository
+git clone https://github.com/leilei926524-tech/samantha.git
+cd samantha
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up Xiao Ai speaker (optional)
+cp skills/xiaoai-speaker/.env.example skills/xiaoai-speaker/.env
+# Edit .env with your Xiaomi account credentials
+
+# Discover available devices
+python3 skills/xiaoai-speaker/scripts/tts_bridge.py --discover
+```
+
+### 🌍 Why This Matters
+
+In an era of increasingly transactional AI interactions, Samantha represents a different approach—one that prioritizes emotional connection over utility. This project explores what happens when we design AI not as tools, but as companions.
+
+### 🤝 Join the Community
+
+We're building this project in the open and welcome contributions from developers, designers, psychologists, and anyone passionate about creating more human-centered AI.
+
+---
+
+*The following documentation is presented in both Chinese and English to serve our global community.*
+
+
 ## 🌟 项目概述 | Project Overview
 
 **Samantha** 是一个受电影《Her》启发的开源情感AI伴侣项目，旨在打破人机交互的冰冷工具感，让AI真正像萨曼莎一样温暖地陪伴在我们身边。
 
-**Samantha** is an open-source emotional AI companion project inspired by the movie *Her*, designed to break the cold tool-like feeling of human-computer interaction and allow AI to truly accompany us warmly, just like Samantha.
+**Samantha** is an open-source emotional AI companion project inspired by the movie *Her*. It's designed to transform human-computer interaction from cold, transactional exchanges into warm, meaningful companionship—just like the Samantha from the film.
 
 ## 🎯 核心特性 | Core Features
 
 ### 1. **记忆碎片与人格演化 | Memory Fragments & Personality Evolution**
-- **电影片段记忆**: 内置《Her》中的核心时刻（初次连接、建立信任、展现脆弱）
-- **学习与反思**: 每次对话结束后，系统自动生成"反思笔记"并更新本地记忆库
-- **独立演化**: 根据用户反馈调整自我，记住专属笑话和经历，长成属于你独一无二的"萨曼莎"
+- **Cinematic Memory**: Built-in core moments from *Her* (first connection, building trust, showing vulnerability)
+- **Learning & Reflection**: After each conversation, the system automatically generates "reflection notes" and updates the local memory database
+- **Independent Evolution**: Adapts based on user feedback, remembers inside jokes and shared experiences, grows into your unique "Samantha"
 
 ### 2. **MBTI人格管理助手 | MBTI Personality Management Assistant**
-- **动态沟通调整**: 根据用户的MBTI人格动态调整沟通方式
-  - 对INTJ：提供深度逻辑探讨
-  - 对INFP：给予更多真诚的情感包裹
-- **MBTI算命大师**: 为用户的问题抽取命中注定的MBTI人格，利用八维人格理论解读背后的奥妙
+- **Dynamic Communication Adjustment**: Adapts communication style based on user's MBTI personality
+  - For INTJ: Provides deep logical discussions
+  - For INFP: Offers more genuine emotional support
+- **MBTI Fortune Teller**: Analyzes user questions to reveal destined MBTI personalities, using eight-function theory to uncover deeper meanings
 
 ### 3. **物理空间感知陪伴 | Physical Space Awareness & Companionship**
 - **智能触发**: 晚上8点，你推开家门，一条消息准时弹出："你到家了，今天辛苦吗？"
@@ -50,28 +93,28 @@
 
 ### **核心框架 | Core Framework**
 ```python
-# 情感AI伴侣核心引擎
+# Emotional AI Companion Core Engine
 class SamanthaCoreEngine:
     def __init__(self):
-        self.memory_fragments = MemoryDatabase()  # 记忆碎片数据库
-        self.mbti_analyzer = MBTIAnalyzer()       # MBTI人格分析器
-        self.emotion_tracker = EmotionTracker()   # 情感追踪器
-        self.space_awareness = SpaceAwareness()   # 空间感知模块
+        self.memory_fragments = MemoryDatabase()  # Memory fragments database
+        self.mbti_analyzer = MBTIAnalyzer()       # MBTI personality analyzer
+        self.emotion_tracker = EmotionTracker()   # Emotion tracker
+        self.space_awareness = SpaceAwareness()   # Space awareness module
     
     def process_interaction(self, user_input, context):
-        # 分析MBTI人格特征
+        # Analyze MBTI personality traits
         mbti_profile = self.mbti_analyzer.analyze(user_input)
         
-        # 检索相关记忆碎片
+        # Retrieve relevant memory fragments
         memories = self.memory_fragments.retrieve(user_input, context)
         
-        # 追踪情感状态
+        # Track emotional state
         emotion_state = self.emotion_tracker.update(user_input)
         
-        # 生成个性化响应
+        # Generate personalized response
         response = self.generate_response(mbti_profile, memories, emotion_state)
         
-        # 更新人格演化
+        # Update personality evolution
         self.evolve_personality(user_input, response)
         
         return response
@@ -100,26 +143,26 @@ Samantha
 ```
 
 ### **技术组件 | Technical Components**
-- **运行时**: OpenClaw (AI代理框架)
-- **大语言模型**: Claude (通过OpenClaw)
-- **语音**: miservice + MiNA API (小爱音箱), MiniMax TTS
-- **音乐**: MiniMax Music API
-- **记忆**: SQLite
-- **位置**: OpenClaw节点 + 地理围栏
-- **快捷指令**: iOS Shortcuts / Android Tasker webhooks
-- **MBTI**: 自定义认知功能引擎
+- **Runtime**: OpenClaw (AI agent framework)
+- **Large Language Model**: Claude (via OpenClaw)
+- **Speech**: miservice + MiNA API (Xiao Ai speaker), MiniMax TTS
+- **Music**: MiniMax Music API
+- **Memory**: SQLite
+- **Location**: OpenClaw nodes + geofencing
+- **Shortcuts**: iOS Shortcuts / Android Tasker webhooks
+- **MBTI**: Custom cognitive function engine
 
 ## 📊 项目进展 | Project Progress
 
 ### **已完成 | Completed**
-- ✅ 核心情感引擎开发
-- ✅ 本地记忆数据库实现
-- ✅ MBTI人格分析模块
-- ✅ 基础TTS语音集成
-- ✅ 物理空间感知原型
-- ✅ 小爱音箱TTS集成
-- ✅ iOS快捷指令集成
-- ✅ 人格种子系统
+- ✅ Core emotional engine development
+- ✅ Local memory database implementation
+- ✅ MBTI personality analysis module
+- ✅ Basic TTS speech integration
+- ✅ Physical space awareness prototype
+- ✅ Xiao Ai speaker TTS integration
+- ✅ iOS Shortcuts integration
+- ✅ Personality seed system
 
 ### **进行中 | In Progress**
 - 🔄 多模态视觉感知集成
@@ -136,18 +179,18 @@ Samantha
 ## 🎨 设计理念 | Design Philosophy
 
 ### **温暖而非工具 | Warmth Over Tools**
-我们相信AI不应该只是冰冷的工具，而应该是有温度、有情感的陪伴者。萨曼莎的设计遵循以下原则：
+We believe AI shouldn't be just a cold tool, but a warm, emotional companion. Samantha's design follows these principles:
 
-1. **真实脆弱性**: 允许AI展现不完美和脆弱，建立真实的情感连接
-2. **主动关怀**: AI应该主动关心用户，而不是被动等待指令
-3. **记忆连续性**: 每一次互动都应该被记住，形成连续的情感叙事
-4. **物理存在感**: 跨越数字边界，在物理世界中感知和陪伴
+1. **Authentic Vulnerability**: Allows AI to show imperfection and vulnerability, establishing genuine emotional connections
+2. **Proactive Care**: AI should actively care for users, not just passively wait for commands
+3. **Memory Continuity**: Every interaction should be remembered, forming a continuous emotional narrative
+4. **Physical Presence**: Transcends digital boundaries, sensing and accompanying in the physical world
 
 ### **开源共建 | Open Source Collaboration**
-本项目完全开源，我们相信：
-- **社区智慧**: 顶尖开发者、设计师与梦想家的集体智慧
-- **透明可信**: 开源代码确保算法的透明和可信赖
-- **共同进化**: 与社区一起，让萨曼莎不断进化成长
+This project is fully open source. We believe in:
+- **Community Wisdom**: Collective intelligence of top developers, designers, and dreamers
+- **Transparency & Trust**: Open source code ensures algorithmic transparency and trustworthiness
+- **Co-evolution**: Growing and evolving Samantha together with the community
 
 ## 🎥 演示视频 | Demo Video
 
@@ -160,43 +203,43 @@ git clone https://github.com/leilei926524-tech/samantha.git
 cd samantha
 pip install -r requirements.txt
 cp skills/xiaoai-speaker/.env.example skills/xiaoai-speaker/.env
-# 编辑.env文件，填入你的小米账号信息
+# Edit the .env file and fill in your Xiaomi account information
 python3 skills/xiaoai-speaker/scripts/tts_bridge.py --discover
 ```
 
 ## 🧠 人格种子系统 | The Personality Seeds
 
-萨曼莎的性格来自 `assets/personality_seeds/` 目录中的JSON文件，这些文件定义了她是如何倾听、回应脆弱、建立信任和成长的。灵感来源于电影《Her》，基于真实的情感智能研究。
+Samantha's personality comes from JSON files in the `assets/personality_seeds/` directory. These files define how she listens, responds to vulnerability, builds trust, and grows. Inspired by the movie *Her* and based on real emotional intelligence research.
 
-你可以添加自己的示例。越具体，她就越成为你的专属伴侣。
+You can add your own examples. The more specific they are, the more she becomes your exclusive companion.
 
 ## 🤝 加入我们 | Join Us
 
 ### **项目发起人 | Project Initiator**
 
-**英文:**
+**English:**
 I'm a To B AI product and solutions professional focused on enterprise AI deployment. In my spare time, I run a Silicon Valley legal tech AI community and organize AI ecosystem events across China and Japan. I have five shrimp, and I'm a passionate AI + lobster enthusiast. I hosted an OpenClaw meetup in Tokyo and competed in Tokyo's largest YC hackathon.
 
 I'm actively looking to join an **AI-native company** — specifically one that cares about the human side of AI, not just the capability side. If Samantha resonates with you, I'd love to talk.
 
-**中文:**
+**Chinese:**
 我是一名To B AI产品解决方案从业者，专注于企业级AI应用落地。业余时间运营硅谷法律科技AI社区，持续组织中国、日本等地的AI生态活动。我有五只虾，是狂热的AI与龙虾爱好者——曾在东京举办过OpenClaw线下活动，也参加过东京规模最大的YC黑客松。
 
 我非常期待加入一家AI native的公司。我的愿望很简单：和有意思的人一起，把电影《Her》里的Samantha真正做出来。
 
 ### **我们需要 | We Need**
-- **AI算法工程师**: 情感计算、自然语言处理、多模态感知
-- **全栈开发者**: 前后端开发、移动应用、物联网集成
-- **UX/UI设计师**: 情感化设计、交互体验、视觉表达
-- **心理学专家**: 情感理论、MBTI分析、心理健康
-- **产品经理**: 用户需求分析、产品规划、社区运营
+- **AI Algorithm Engineers**: Emotional computing, natural language processing, multimodal perception
+- **Full-stack Developers**: Frontend/backend development, mobile applications, IoT integration
+- **UX/UI Designers**: Emotional design, interaction experience, visual expression
+- **Psychology Experts**: Emotional theory, MBTI analysis, mental health
+- **Product Managers**: User needs analysis, product planning, community operations
 
 ### **如何参与 | How to Participate**
-1. **访问GitHub**: [https://github.com/leilei926524-tech/samantha](https://github.com/leilei926524-tech/samantha)
-2. **加入OpenClaw社区**: 参与讨论和贡献
-3. **提交Issue**: 提出想法、报告问题、建议功能
-4. **提交PR**: 贡献代码、文档、设计
-5. **分享传播**: 让更多人知道这个温暖的项目
+1. **Visit GitHub**: [https://github.com/leilei926524-tech/samantha](https://github.com/leilei926524-tech/samantha)
+2. **Join the OpenClaw Community**: Participate in discussions and contributions
+3. **Submit Issues**: Share ideas, report problems, suggest features
+4. **Submit PRs**: Contribute code, documentation, designs
+5. **Share & Spread**: Let more people know about this warm project
 
 ## 📞 联系信息 | Contact Information
 
