@@ -1,0 +1,25 @@
+{
+  "name": "samantha",
+  "version": "2.0.0",
+  "description": "Emotional AI companion with MBTI integration, smart device connections, location awareness, and shortcuts support",
+  "author": "leilei926524-tech",
+  "license": "MIT",
+  "skills": [
+    "mbti-coach",
+    "mbti-fortune",
+    "smart-devices",
+    "location-awareness",
+    "shortcuts-awareness"
+  ],
+  "dependencies": {
+    "openclaw": ">=1.0.0"
+  },
+  "tags": [
+    "companion",
+    "emotional-ai",
+    "mbti",
+    "smart-home",
+    "location",
+    "shortcuts"
+  ]
+}

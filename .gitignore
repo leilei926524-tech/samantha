@@ -1,33 +1,30 @@
-# 依赖目录
-venv/
-env/
-.venv/
-ENV/
-env.bak/
-venv.bak/
-
-# 编辑器文件
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# 操作系统文件
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Samantha项目专用忽略文件
+data/relationship.db
+data/personality_state.json
+data/emotional_bond.json
+data/*.db
+data/*.json
 
 # Python编译文件
 __pycache__/
+*.pyc
+*.pyo
 *.py[cod]
 *$py.class
 *.so
 .Python
+
+# 虚拟环境
+.env
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+env/
+ENV/
+
+# 依赖目录
 build/
 develop-eggs/
 dist/
@@ -46,9 +43,21 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# 虚拟环境
-pip-log.txt
-pip-delete-this-directory.txt
+# 编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # 单元测试/覆盖率报告
 htmlcov/
@@ -116,15 +125,6 @@ celerybeat.pid
 
 # SageMath
 .sage/
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
 
 # Spyder
 .spyderproject
@@ -205,13 +205,13 @@ test_results/
 .idea/workspace.xml
 .idea/modules.xml
 
-# 操作系统特定文件
-.DS_Store
-Thumbs.db
-
 # 项目特定文件
 *.ppt
 *.pptx
 *.pdf
 *.doc
 *.docx
+
+# 其他
+pip-log.txt
+pip-delete-this-directory.txt
