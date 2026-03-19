@@ -100,6 +100,7 @@ Once installed, OpenClaw will automatically activate Samantha when you want emot
 ### Device Integration Skills
 
 - **smart-devices**: Connect to smart speakers, watches, and home automation
+- **xiaoai-speaker**: Samantha speaks through 小爱音箱 via Xiaomi account TTS
 - **location-awareness**: Geofence-based caring messages when you arrive/leave places
 - **shortcuts-awareness**: Respond to iOS Shortcuts and Android Tasker triggers
 
