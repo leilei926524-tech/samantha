@@ -188,15 +188,91 @@ Track and celebrate:
 - Score crosses 40 (functional competence threshold)
 - Score crosses 60 (functional strength threshold)
 
-### 3.3 Radar Chart
+### 3.3 Radar Chart Visualization — Automatic Generation
 
-When user asks to see progress, run `scripts/radar_chart.py` with current scores:
+**CRITICAL: Always generate the radar chart immediately after the first coaching session**, not waiting for user request.
 
-```bash
-python3 scripts/radar_chart.py
+When a user completes their initial assessment, automatically generate a visual radar chart that matches the relationship visualization aesthetic.
+
+**Chart style requirements:**
+- Dark theme with particle background (gold/amber floating particles)
+- ECharts dual visualization: radar chart + bar chart side by side
+- Color scheme: cyan-blue gradient for current state, amber/gold gradient for target state
+- Fonts: Playfair Display (titles) + Noto Sans SC (body)
+- Glassmorphism card effects with rgba backgrounds
+- Max radius: 70-80% to ensure visibility in chat/Feishu
+- Compact layout: container width ~800px, reduced padding (15-20px), smaller fonts (0.85-0.95rem base)
+
+**Chart dimensions to display:**
+- Current MBTI type (current cognitive function stack)
+- Target MBTI type (target cognitive function stack)
+- Gap analysis (which functions need development)
+- Practical recommendations for each function gap
+
+**How to generate:**
+1. Create an HTML file named `mbti-radar-[current]-[target].html` in the workspace
+2. Include ECharts library from CDN (https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js)
+3. Use particle background system with gold floating particles
+4. Generate radar chart showing 8 cognitive functions (Fi, Fe, Ti, Te, Si, Se, Ni, Ne)
+5. Add bar chart comparison for clarity
+6. Include practical development recommendations (actionable, not generic)
+7. Present to user using `open_result_view` tool
+
+**Chart HTML structure example:**
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 人格成长可视化</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+        }
+        
+        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        .particle { position: absolute; width: 2px; height: 2px; background: rgba(255, 215, 0, 0.6); border-radius: 50%; animation: float 15s infinite; }
+        @keyframes float { 0% { transform: translateY(0); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-100vh); opacity: 0; } }
+        
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .chart-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border-radius: 16px; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="container">
+        <header>
+            <h1>MBTI 人格成长路径</h1>
+        </header>
+        <div class="chart-card">
+            <div id="radarChart" style="width:100%;height:350px;"></div>
+            <div id="barChart" style="width:100%;height:280px;margin-top:20px;"></div>
+            <div class="recommendations"></div>
+        </div>
+    </div>
+    <script>
+        // ECharts configuration with radar + bar
+        // Current type: cyan-blue gradient
+        // Target type: amber-gold gradient
+        // Practical recommendations based on function gaps
+    </script>
+</body>
+</html>
 ```
 
-This generates a radar chart showing all 8 function scores.
+**When to trigger:**
+- After Step 1.6 (Save Profile) is complete — generate chart immediately and present
+- When user asks for "蛛网图", "雷达图", or "可视化" (visualization)
+- At any progress milestone when scores have meaningfully changed
 
 ---
 

@@ -1,6 +1,7 @@
-# Samantha — Emotional AI Companion
+# Samantha — Emotional AI Companion / 寻找萨曼莎
 
 > *"I want to build the Samantha from the movie Her. Not a chatbot. A presence."*
+> *"我想做出电影《Her》里的萨曼莎。不是聊天机器人，是一个真实存在的陪伴。"*
 
 ## Demo
 
